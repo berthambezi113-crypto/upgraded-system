@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Malipo Pricing Slider</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .slider {
+      width: 95%;
+      max-width: 420px;
+      overflow: hidden;
+      border-radius: 15px;
+      background: #000; 
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      padding: 20px 0;
+    }
+    .slides {
+      display: flex;
+      scroll-snap-type: x mandatory;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      gap: 20px; 
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .slide {
+      flex: 0 0 90%;
+      box-sizing: border-box;
+      padding: 30px 20px;
+      text-align: center;
+      scroll-snap-align: start;
+      position: relative;
+      background: #000;
+      color: #fff;
+      border-radius: 15px;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(255 255 255 / 0.1);
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #2196f3;
+      color: white;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      border-radius: 12px;
+      user-select: none;
+    }
+    .badge.orange {
+      background: orange ;
+    }
+    .badge.yellow {
+      background: yellow;
+      color: #000;
+    }
+    .badge.green {
+      background:green ;
+    }
+
+    .slide h2 {
+      margin: 10px 0;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .price {
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #fff;
+    }
+    .price span {
+      font-size: 1rem;
+      color: #ddd;
+    }
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+      text-align: left;
+      display: inline-block;
+      flex-grow: 1; 
+      color: #ddd;
+      font-size: 1rem;
+    }
+    .features li {
+      margin: 8px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      align-self: center;
+      transition: background 5s ease;
+      border: none;
+      font-size: 1rem;
+      min-width: 140px;
+    }
+    .btn.orange {
+      background: #ff6f00;
+    }
+    .btn.orange:hover {
+      background: #e65c00;
+    }
+    .btn.yellow {
+      background: #fbc02d;
+      color: #000;
+    }
+    .btn.yellow:hover {
+      background: #d4af1f;
+    }
+    .btn.green {
+      background: #388e3c;
+    }
+    .btn.green:hover {
+      background: #2e7030;
+    }
+
+    .nav {
+      text-align: center;
+      margin: 15px 0;
+      user-select: none;
+    }
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 5s ease;
+    }
+    .dot.active {
+      background-color: #fff;
+    }
+
+    .slides {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .slides::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .slider {
+        max-width: 960px;
+        padding: 40px 0;
+      }
+      .slides {
+        gap: 30px;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .slide {
+        flex: 1 0 30%;
+        min-height: auto;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      }
+      .nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <div class="slides" id="slides">
+      <div class="slide standard">
+        <div class="badge orange">Low in use</div>
+        <h2>STANDARD PACKAGE</h2>
+        <p class="price">50,000Tsh<span>/Month</span></p>
+        <ul class="features">
+          <li>✅ Perfect for individual</li>
+          <li>✅ Access to all basic features</li>
+          <li>✅ Email support included</li>
+          <li>✅ Great for getting started</li>
+        </ul>
+        <button class="btn orange">Get Started</button>
+      </div>
+      <div class="slide premium">
+        <div class="badge yellow">Most Popular</div>
+        <h2>PREMIUM PACKAGE</h2>
+        <p class="price">100,000Tsh <span>/Month</span></p>
+        <ul class="features">
+          <li>✔️ Ideal for small business</li>
+          <li>✔️ Everything in standard</li>
+          <li>✔️ Priority email support</li>
+          <li>✔️ Extra storage and features</li>
+        </ul>
+        <button class="btn yellow">Choose Premium</button>
+      </div>
+      <div class="slide professional">
+        <div class="badge green">Best & Professional</div>
+        <h2>COMPACT PACKAGE</h2>
+        <p class="price">150,000Tsh <span>/Month</span></p>
+        <ul class="features">
+          <li>📈 Best for businesses</li>
+          <li>📈 All premium features</li>
+          <li>📈 24/7 priority support</li>
+          <li>📈 Unlimited projects</li>
+        </ul>
+        <button class="btn green">Go Compact</button>
+      </div>
+    </div>
+    <div class="nav">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.getElementById("slides");
+    const dots = document.querySelectorAll(".dot");
+    const totalSlides = dots.length;
+
+    function goToSlide(index) {
+      slides.scrollTo({ left: index * slides.clientWidth, behavior: "smooth" });
+      updateDots(index);
+    }
+
+    function updateDots(activeIndex) {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === activeIndex);
+      });
+    }
+
+    slides.addEventListener("scroll", () => {
+      const index = Math.round(slides.scrollLeft / slides.clientWidth);
+      updateDots(index);
+    });
+
+    // Optional: Auto slide every 4 seconds on mobile devices
+    setInterval(() => {
+      if (window.innerWidth < 768) {
+        const index = Math.round(slides.scrollLeft / slides.clientWidth);
+        const nextIndex = (index + 1) % totalSlides;
+        goToSlide(nextIndex);
+      }
+    }, 4000);
+  </script>
+</body>
+</html>
